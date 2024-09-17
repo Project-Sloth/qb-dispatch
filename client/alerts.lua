@@ -1,6 +1,5 @@
 local function CustomAlert(data)
     local coords = data.coords or vec3(0.0, 0.0, 0.0)
-    if data.job then job = data.job end
     local gender = GetPlayerGender()
     if not data.gender then gender = nil end
 
@@ -25,7 +24,6 @@ local function CustomAlert(data)
         automaticGunfire = data.automaticGunfire or false, -- Automatic Gun or not
         alert = {
             radius = data.radius or 0, -- Radius around the blip
-            recipientList = job, -- job
             sprite = data.sprite or 1, -- Sprite of the blip
             color = data.color or 1, -- Color of the blip
             scale = data.scale or 0.5, -- Scale of the blip
@@ -35,7 +33,7 @@ local function CustomAlert(data)
             offset = data.offset or false, -- Blip / radius offset
             flash = data.flash or false -- Blip flash
         },
-        jobs = { 'leo' },
+        jobs = data.jobs or { 'leo' },
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
