@@ -596,10 +596,20 @@ end
 --- @param data string -- Message
 --- @param type string -- What type of emergency
 --- @param anonymous boolean -- Is the call anonymous
+local pslastaction = 0
 RegisterNetEvent('ps-dispatch:client:sendEmergencyMsg', function(data, type, anonymous)
+    local year, month , day , hour, minute, second  = GetUtcTime()
+    local idtrack = tonumber(hour..minute..second)
+    local spamdetek = idtrack - pslastaction
+    if spamdetek < 0 then spamdetek = Config.AlertCommandCooldown end
+    if spamdetek <= Config.AlertCommandCooldown and pslastaction > 0 then
+    pslastaction = idtrack
+    QBCore.Functions.Notify("Command on cooldown", "error")
+    else
+    pslastaction = idtrack
     local jobs = { ['911'] = { 'leo' }, ['311'] = { 'ems' } }
-
     PhoneCall(data, anonymous, jobs[type], type)
+    end
 end)
 
 

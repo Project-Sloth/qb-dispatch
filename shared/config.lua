@@ -14,6 +14,8 @@ Config.Jobs = { -- Job Types or names that can access the dispatch menu. If you 
     "ems"
 }
 
+Config.AlertCommandCooldown = 60 -- this would make the command work every 60 seconds to avoid spamming
+
 Config.DefaultAlertsDelay = 5 -- Delay between each default alert, prevent spamming
 Config.DefaultAlerts = {
     Speeding = true,
