@@ -786,3 +786,23 @@ local function SignRobbery()
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
 end
 exports('SignRobbery', SignRobbery)
+
+local function BobcatSecurityHeist()
+    local coords = GetEntityCoords(cache.ped)
+
+    local dispatchData = {
+        message = locale('bobcatsecurity'),
+        codeName = 'bobcatsecurityheist',
+        code = '10-90',
+        icon = 'fa-solid fa-building-shield',
+        priority = 2,
+        coords = coords,
+        gender = GetPlayerGender(),
+        street = GetStreetAndZone(coords),
+        alertTime = nil,
+        jobs = { 'leo'}
+    }
+
+    TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
+end
+exports('BobcatSecurityHeist', BobcatSecurityHeist)

@@ -86,6 +86,7 @@ Dispatch notifications are sent containing only the alert name, omitting additio
 - exports['ps-dispatch']:VehicleShooting(vehicle)
 - exports['ps-dispatch']:VehicleTheft(vehicle)
 - exports['ps-dispatch']:YachtHeist()
+- exports['ps-dispatch']:BobcatSecurityHeist()
 ```
 # Steps to Create New Alert
 Add the following into your `alerts.lua` and change to your liking:

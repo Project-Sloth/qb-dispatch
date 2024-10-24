@@ -243,6 +243,16 @@ Config.Blips = {
         offset = false,
         flash = false
     },
+    ['bobcatsecurityheist'] = {
+        radius = 0,
+        sprite = 500,
+        color = 5,
+        scale = 1.5,
+        length = 2,
+        sound = 'robberysound',
+        offset = false,
+        flash = false
+    },
     ['prisonbreak'] = {
         radius = 0,
         sprite = 189,
